@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie site</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="carousel">
+            <button class="carousel__button carousel__button--left is-hidden">
+            <img src="img/left.svg" alt="">
+        </button>
+            <div class="carousel__track-container">
+                <ul class="carousel__track">
+                    <li class="carousel__slide current-slide">
+                        <img class="carousel__images" src="img/Fast-and-Furious-9.png" alt="">
+                    </li>
+                    <li class="carousel__slide">
+                        <img class="carousel__images" src="img/black widow.jpg" alt="">
+                    </li>
+                    <li class="carousel__slide">
+                        <img class="carousel__images" src="img/The-Suicide-Squad.jpg" alt="">
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel__button carousel__button--right">
+            <img src="img/right.svg" alt="">
+        </button>
+
+            <div class="carousel__nav">
+                <button class="carousel__indicator current-slide"></button>
+                <button class="carousel__indicator"></button>
+                <button class="carousel__indicator"></button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script src="js/carousel.js"></script>
+</body>
+
+</html>
