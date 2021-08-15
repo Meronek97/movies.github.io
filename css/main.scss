@@ -7,7 +7,8 @@
 }
 
 body {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, .3);
+    font-family: 'Hahmlet', serif;
 }
 
 img {
@@ -32,7 +33,7 @@ img {
     height: 100%;
 }
 
-.carousel__track-container {
+.carousel__track--container {
     background: cyan;
     height: 100%;
     position: relative;
@@ -98,4 +99,75 @@ img {
 
 .is-hidden {
     display: none;
+}
+
+// content css
+.content {
+    position: relative;
+    height: 500px;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.movie__info--slide {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    .title {
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin: 1em 0;
+    }
+    .movie {
+        display: flex;
+    }
+    .description {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 2em;
+        width: 30%;
+        padding: 0.5em;
+    }
+    .movie__cast {
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1em;
+    }
+}
+
+.movie__star {
+    display: inline-block;
+    width: 180px;
+    margin: 0 auto;
+    .photo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+    img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    }
+    .movie__star--name {
+        font-weight: 600;
+    }
+}
+
+.content__track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    transition: transform 250ms ease-in;
+}
+
+.content__track--container {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
 }

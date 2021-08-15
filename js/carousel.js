@@ -8,12 +8,36 @@ const dot = Array.from(dotNav.children);
 
 const slideWidth = slides[0].getBoundingClientRect().width;
 
+//movie 
+const contentTrack = document.querySelector('.content__track');
+const movieSlides = Array.from(contentTrack.children);
+
+const movieWidth = movieSlides[0].getBoundingClientRect().width;
+
+
+
+
 // arange slides next to another
 
 const setSlidePosition = (slide, index) => {
     slide.style.left = slideWidth * index + 'px';
 };
 slides.forEach(setSlidePosition);
+
+// movie
+
+const setMoviePosition = (movie, index) => {
+    movie.style.left = movieWidth * index + 'px';
+};
+movieSlides.forEach(setMoviePosition);
+
+
+const moveToMovie = (contentTrack, currentMovie, targetMovie) => {
+    contentTrack.style.transform = 'translateX(-' + targetMovie.style.left + ')';
+    currentMovie.classList.remove('current-movie');
+    targetMovie.classList.add('current-movie')
+};
+// 
 
 const moveToSlide = (track, currentSlide, targetSlide) => {
     track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
@@ -39,6 +63,7 @@ const hideShowArrows = (slides, prevButton, nextButton, targetIndex) => {
     }
 };
 
+
 // move slide to left
 
 prevButton.addEventListener('click', e => {
@@ -51,6 +76,13 @@ prevButton.addEventListener('click', e => {
     moveToSlide(track, currentSlide, prevSlide);
     updateDots(currentDot, prevDot);
     hideShowArrows(slides, prevButton, nextButton, prevIndex);
+
+    // movie
+
+    const currentMovie = contentTrack.querySelector('.current-movie');
+    const prevMovie = currentMovie.previousElementSibling;
+    moveToMovie(contentTrack, currentMovie, prevMovie);
+
 });
 
 // move slide to right
@@ -65,6 +97,12 @@ nextButton.addEventListener('click', e => {
     moveToSlide(track, currentSlide, nextSlide);
     updateDots(currentDot, nextDot);
     hideShowArrows(slides, prevButton, nextButton, nextIndex);
+    //movie
+
+    const currentMovie = contentTrack.querySelector('.current-movie');
+    const nextMovie = currentMovie.nextElementSibling;
+    moveToMovie(contentTrack, currentMovie, nextMovie);
+    //
 });
 
 
@@ -85,5 +123,10 @@ dotNav.addEventListener('click', e => {
     moveToSlide(track, currentSlide, targetSlide);
     updateDots(currentDot, targetDot);
     hideShowArrows(slides, prevButton, nextButton, targetIndex);
+    //movie
 
+    const currentMovie = contentTrack.querySelector('.current-movie');
+    const nextMovie = currentMovie.nextElementSibling;
+    moveToMovie(contentTrack, currentMovie, nextMovie);
+    //
 });
